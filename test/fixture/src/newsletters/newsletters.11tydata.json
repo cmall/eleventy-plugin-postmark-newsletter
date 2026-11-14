@@ -1,0 +1,4 @@
+{
+  "layout": "layouts/newsletter.njk",
+  "eleventyExcludeFromCollections": true
+}

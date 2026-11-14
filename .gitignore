@@ -1,0 +1,5 @@
+node_modules/
+package-lock.json
+test/fixture/_site/
+.wrangler/
+.dev.vars

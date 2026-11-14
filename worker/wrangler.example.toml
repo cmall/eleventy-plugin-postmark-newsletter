@@ -1,0 +1,33 @@
+# Copy this into your site repo (for example newsletter-worker/wrangler.toml) and fill it in.
+name = "newsletter"
+# Path to the Worker code, relative to this file.
+main = "../node_modules/eleventy-plugin-postmark-newsletter/worker/index.mjs"
+compatibility_date = "2026-10-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "newsletter"
+database_id = "PASTE-THE-ID-FROM-wrangler-d1-create"
+
+# Daily cleanup of signups that were never confirmed.
+[triggers]
+crons = ["23 11 * * *"]
+
+[vars]
+SITE_URL = "https://example.com"
+SITE_NAME = "My Site"
+FROM_EMAIL = "Your Name <you@example.com>"
+# Postmark stream for confirmation emails (transactional) and for newsletters (broadcast).
+CONFIRM_STREAM = "outbound"
+BROADCAST_STREAM = "broadcast"
+# Where people land after each step. Defaults are SITE_URL + these paths.
+# PENDING_URL = "https://example.com/subscribe/check-email/"
+# CONFIRMED_URL = "https://example.com/subscribe/confirmed/"
+# ERROR_URL = "https://example.com/subscribe/problem/"
+# MAX_CONFIRMATIONS_PER_HOUR = "30"
+
+# Secrets: set each with `npx wrangler secret put NAME`
+#   POSTMARK_SERVER_TOKEN   Postmark server API token
+#   SUBSCRIBERS_TOKEN       long random string; the sender uses it to read the list
+#   WEBHOOK_SECRET          long random string; the password in Postmark's webhook URL
+#   TURNSTILE_SECRET_KEY    optional, from Cloudflare Turnstile; turns on the bot check

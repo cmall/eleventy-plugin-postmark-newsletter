@@ -1,0 +1,53 @@
+{
+  "name": "eleventy-plugin-postmark-newsletter",
+  "version": "0.1.0",
+  "description": "Write newsletters in Eleventy, schedule them with a sendDate in front matter, and send them to subscribers through a Postmark broadcast stream. Includes a Cloudflare Worker for double opt-in signups.",
+  "main": "index.js",
+  "bin": {
+    "eleventy-newsletter": "bin/cli.js"
+  },
+  "files": [
+    "index.js",
+    "lib/",
+    "bin/",
+    "templates/",
+    "worker/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "keywords": [
+    "eleventy",
+    "eleventy-plugin",
+    "11ty",
+    "newsletter",
+    "postmark",
+    "email",
+    "cloudflare-workers"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cmall/eleventy-plugin-postmark-newsletter.git"
+  },
+  "homepage": "https://github.com/cmall/eleventy-plugin-postmark-newsletter#readme",
+  "bugs": {
+    "url": "https://github.com/cmall/eleventy-plugin-postmark-newsletter/issues"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.17"
+  },
+  "peerDependencies": {
+    "@11ty/eleventy": ">=2.0.0"
+  },
+  "dependencies": {
+    "html-to-text": "^9.0.5",
+    "js-yaml": "^4.1.0",
+    "juice": "^11.1.1"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  }
+}
